@@ -11,9 +11,33 @@
     <style>
         body {
             background-color: #add8e6; /* Light blue background color */
+            font-family: Arial, sans-serif;
         }
         header h1 {
             text-align: center;
+        }
+        .tab {
+            display: none;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab:checked + label {
+            background-color: #000;
+            color: #fff;
+        }
+        .tab:checked + label + .tab-content {
+            display: block;
+        }
+        .tab + label {
+            display: block;
+            padding: 10px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+        .tab-content ul {
+            list-style-type: disc;
+            margin: 10px 0 10px 20px;
         }
     </style>
 </head>
@@ -38,14 +62,25 @@
         </section>
 
         <section class="services">
-            <h2>Our Services</h2>
-            <div class="service">
+            <input type="radio" id="tab1" name="tabs" class="tab" checked>
+            <label for="tab1">Export Services</label>
+            <div class="tab-content">
                 <h3>Export Services</h3>
-                <p>We offer comprehensive export services, ensuring your goods reach their destination efficiently.</p>
+                <ul>
+                    <li>We offer comprehensive export services, ensuring your goods reach their destination efficiently.</li>
+                </ul>
             </div>
-            <div class="service">
+
+            <input type="radio" id="tab2" name="tabs" class="tab">
+            <label for="tab2">Import Services</label>
+            <div class="tab-content">
                 <h3>Import Services</h3>
-                <p>Our import services facilitate smooth transactions, making international trade hassle-free.</p>
+                <ul>
+                    <li>End-to-end import solutions</li>
+                    <li>Customs brokerage</li>
+                    <li>Freight management</li>
+                    <li>Import documentation</li>
+                </ul>
             </div>
         </section>
         
@@ -72,6 +107,9 @@
             <a href="#">Facebook</a>
             <a href="#">Twitter</a>
             <a href="#">LinkedIn</a>
+        </div>
+        <div class="footer-logo">
+            <img src="images/facebook-logo.png" alt="Facebook Logo" style="width:30px; height:auto;">
         </div>
     </footer>
 </body>
