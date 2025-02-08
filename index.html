@@ -16,6 +16,35 @@
         header h1 {
             text-align: center;
         }
+        .hgroup-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .site-branding img {
+            max-width: 100%;
+            height: auto;
+        }
+        .main-navigation ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .main-navigation ul li {
+            margin-right: 15px;
+        }
+        .main-navigation ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .main-navigation ul li a:hover {
+            color: #007BFF;
+        }
         .tab {
             display: none;
         }
@@ -43,15 +72,29 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to Bodh Prima</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="export.html">Export Services</a></li>
-                <li><a href="import.html">Import Services</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
+        <div class="hgroup-wrap">
+            <div class="site-branding">
+                <a href="https://bodhprima.com/" class="custom-logo-link" rel="home" aria-current="page">
+                    <img width="552" height="188" src="https://bodhprima.com/wp-content/uploads/2019/12/LogoV1.png" class="custom-logo" alt="Bodh Prima" decoding="async" fetchpriority="high">
+                </a>
+            </div>
+            <div class="hgroup-right">
+                <nav class="main-navigation">
+                    <div class="menu-container">
+                        <div class="menu-menu-container">
+                            <ul id="menu-menu" class="menu">
+                                <li id="menu-item-50" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-50">
+                                    <a href="http://bodhprima.com" aria-current="page">Home</a>
+                                </li>
+                                <li id="menu-item-163" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-163">
+                                    <a href="https://bodhprima.com/?page_id=2">About Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
     </header>
     
     <main>
@@ -67,7 +110,10 @@
             <div class="tab-content">
                 <h3>Export Services</h3>
                 <ul>
-                    <li>We offer comprehensive export services, ensuring your goods reach their destination efficiently.</li>
+                    <li>Comprehensive logistics solutions</li>
+                    <li>Customs clearance services</li>
+                    <li>Freight forwarding</li>
+                    <li>Export documentation</li>
                 </ul>
             </div>
 
@@ -83,7 +129,7 @@
                 </ul>
             </div>
         </section>
-        
+
         <section class="contact">
             <h2>Contact Us</h2>
             <form>
