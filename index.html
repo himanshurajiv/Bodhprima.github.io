@@ -8,65 +8,43 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="description" content="Bodh Prima offers premier export and import services for your business.">
     <meta name="keywords" content="export, import, trade, global market, Bodh Prima">
+    <script defer src="script.js"></script>
     <style>
-        body {
-            background-color: #add8e6; /* Light blue background color */
-            font-family: Arial, sans-serif;
-        }
-        header h1 {
-            text-align: center;
-        }
-        .hgroup-wrap {
+        .contact form {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
         }
-        .site-branding img {
-            max-width: 100%;
-            height: auto;
-        }
-        .main-navigation ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
+        .form-group {
+            width: 100%;
             display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
         }
-        .main-navigation ul li {
-            margin-right: 15px;
-        }
-        .main-navigation ul li a {
-            text-decoration: none;
-            color: #333;
+        .form-group label {
+            margin-bottom: 5px;
             font-weight: bold;
         }
-        .main-navigation ul li a:hover {
-            color: #007BFF;
-        }
-        .tab {
-            display: none;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab:checked + label {
-            background-color: #000;
-            color: #fff;
-        }
-        .tab:checked + label + .tab-content {
-            display: block;
-        }
-        .tab + label {
-            display: block;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
             padding: 10px;
-            background-color: #f1f1f1;
-            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        .tab-content ul {
-            list-style-type: disc;
-            margin: 10px 0 10px 20px;
+        .submit-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -75,7 +53,7 @@
         <div class="hgroup-wrap">
             <div class="site-branding">
                 <a href="https://bodhprima.com/" class="custom-logo-link" rel="home" aria-current="page">
-                    <img width="552" height="188" src="https://bodhprima.com/wp-content/uploads/2019/12/LogoV1.png" class="custom-logo" alt="Bodh Prima" decoding="async" fetchpriority="high">
+                    <img width="100" height="40" src="images/logo.jpg" class="custom-logo" alt="Company Logo" decoding="async" fetchpriority="high">
                 </a>
             </div>
             <div class="hgroup-right">
@@ -96,18 +74,22 @@
             </div>
         </div>
     </header>
-    
+
     <main>
-        <section class="hero">
-            <h2>Your Excellence in Global Enlightenment</h2>
-            <p>We provide top-notch export and import services to help your business thrive in the global market.</p>
-            <img src="images/trade.jpg" alt="Global Trade">
-        </section>
+       <section class="hero" style="text-align: center; color: black; padding: 50px;">
+    <h2>Your Excellence in Global Enlightenment</h2>
+    <p>We provide top-notch export and import services to help your business thrive in the global market.</p>
+    <img src="images/trade.jpg" alt="Global Trade" style="display: block; margin: 20px auto; max-width: 100%; height: auto;">
+      </section>
+
+
 
         <section class="services">
-            <input type="radio" id="tab1" name="tabs" class="tab" checked>
-            <label for="tab1">Export Services</label>
-            <div class="tab-content">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="export">Export Services</button>
+                <button class="tab-button" data-tab="import">Import Services</button>
+            </div>
+            <div id="export" class="tab-content active">
                 <h3>Export Services</h3>
                 <ul>
                     <li>Comprehensive logistics solutions</li>
@@ -116,10 +98,7 @@
                     <li>Export documentation</li>
                 </ul>
             </div>
-
-            <input type="radio" id="tab2" name="tabs" class="tab">
-            <label for="tab2">Import Services</label>
-            <div class="tab-content">
+            <div id="import" class="tab-content">
                 <h3>Import Services</h3>
                 <ul>
                     <li>End-to-end import solutions</li>
@@ -132,30 +111,44 @@
 
         <section class="contact">
             <h2>Contact Us</h2>
+            <p>Have any questions or business inquiries? Fill out the form below, and we'll get back to you promptly.</p>
             <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Send</button>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Send Message</button>
             </form>
         </section>
     </main>
-    
-    <footer>
-        <p>© 2025 Bodh Prima. All rights reserved.</p>
-        <div class="social-media">
-            <a href="https://facebook.com/Bodh.prima">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="https://www.linkedin.com/company/bodh-prima/">LinkedIn</a>
-        </div>
-        <div class="footer-logo">
-            <img src="images/facebook-logo.png" alt="Facebook Logo" style="width:30px; height:auto;">
+
+    <footer class="styled-footer">
+        <div class="footer-content">
+            <p>© 2025 Bodh Prima. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://facebook.com/Bodh.prima">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="https://www.linkedin.com/company/bodh-prima/">LinkedIn</a>
+            </div>
+            <div class="footer-logo">
+                <img src="images/socials.jpg" alt="Social Media Logos" style="width: 100px; height: auto;">
+            </div>
         </div>
     </footer>
 </body>
