@@ -14,7 +14,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 500px;
+            max-width: 90%;
             margin: 0 auto;
         }
         .form-group {
@@ -46,6 +46,17 @@
         .submit-button:hover {
             background-color: #0056b3;
         }
+        @media (max-width: 600px) {
+            .contact form {
+                padding: 10px;
+            }
+            .form-group {
+                margin-bottom: 10px;
+            }
+            .submit-button {
+                padding: 8px 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -74,16 +85,12 @@
             </div>
         </div>
     </header>
-
     <main>
-       <section class="hero" style="text-align: center; color: black; padding: 50px;">
-    <h2>Your Excellence in Global Enlightenment</h2>
-    <p>We provide top-notch export and import services to help your business thrive in the global market.</p>
-    <img src="images/trade.jpg" alt="Global Trade" style="display: block; margin: 20px auto; max-width: 100%; height: auto;">
-      </section>
-
-
-
+        <section class="hero" style="text-align: center; color: black; padding: 50px;">
+            <h2>Your Excellence in Global Enlightenment</h2>
+            <p>We provide top-notch export and import services to help your business thrive in the global market.</p>
+            <img src="images/trade.jpg" alt="Global Trade" style="display: block; margin: 20px auto; max-width: 100%; height: auto;">
+        </section>
         <section class="services">
             <div class="tabs">
                 <button class="tab-button active" data-tab="export">Export Services</button>
@@ -108,7 +115,6 @@
                 </ul>
             </div>
         </section>
-
         <section class="contact">
             <h2>Contact Us</h2>
             <p>Have any questions or business inquiries? Fill out the form below, and we'll get back to you promptly.</p>
@@ -117,27 +123,22 @@
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" placeholder="Your Name" required>
                 </div>
-
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" placeholder="Your Email" required>
                 </div>
-
                 <div class="form-group">
                     <label for="subject">Subject:</label>
                     <input type="text" id="subject" name="subject" placeholder="Subject" required>
                 </div>
-
                 <div class="form-group">
                     <label for="message">Message:</label>
                     <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
                 </div>
-
                 <button type="submit" class="submit-button">Send Message</button>
             </form>
         </section>
     </main>
-
     <footer class="styled-footer">
         <div class="footer-content">
             <p>© 2025 Bodh Prima. All rights reserved.</p>
@@ -147,9 +148,4 @@
                 <a href="https://www.linkedin.com/company/bodh-prima/">LinkedIn</a>
             </div>
             <div class="footer-logo">
-                <img src="images/socials.jpg" alt="Social Media Logos" style="width: 100px; height: auto;">
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+                <img src="images/socials.jpg" alt="Social Media Logos
