@@ -10,7 +10,7 @@ header h1 {
 }
 
 .hgroup-wrap {
-    position: relative;  /* Set the header to be relative to allow absolute positioning inside */
+    position: fixed;  /* Set the header to be relative to allow absolute positioning inside */
     display: flex; /* Flexbox layout for the header */
     justify-content: space-between; /* Distribute space between elements */
     align-items: center; /* Align elements vertically in the center */
