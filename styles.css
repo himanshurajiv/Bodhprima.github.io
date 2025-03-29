@@ -2,6 +2,7 @@
 body {
     background-color: #add8e6; /* Light blue background color */
     font-family: Arial, sans-serif; /* Font style for the entire body */
+    padding-top: 100px; /* Adjust according to header height */
 }
 
 header h1 {
@@ -9,17 +10,30 @@ header h1 {
 }
 
 .hgroup-wrap {
-    position: relative;  /* Set the header to be relative to allow absolute positioning inside */
+    position: fixed; /* Fix the header at the top */
     display: flex; /* Flexbox layout for the header */
     justify-content: space-between; /* Distribute space between elements */
     align-items: center; /* Align elements vertically in the center */
-    padding: 20px; /* Padding around the header */
-    background-color: #fff; /* White background for the header */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    width: 100%; /* Ensures the header takes up the full width */
-    box-sizing: border-box; /* Ensures padding doesn’t affect width calculation */
+    top: 0; /* Stick to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 120px;
+    z-index: 1000; /* Ensure it stays above other elements */
+    background-color: #fff; /* Keep background visible */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
 }
 
+.hero {
+    text-align: center;
+    color: black;
+    padding: 50px;
+}
+.hero img{
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  height: auto;
+}
 /* Ensure the images scale properly */
 .site-branding img {
     max-width: 100%; /* Ensures the image scales with the container */
@@ -73,22 +87,24 @@ footer {
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 /* Media Query for larger screens */
-@media (min-width: 600px) {
+@media (min-width: 1100px) {
     /* Show the first image (logo) and second image in larger screens */
     #logo-first {
         display: block; /* Shows the first image */
+        height: 100px;    /* Maintains the aspect ratio */
+        width: auto;    /* Maintains the aspect ratio */
     }
 
     .header-center-image {
+        display: block; /* Shows the second image */
         position: absolute;  /* Position the image absolutely within the header */
         top: 50%;            /* Position the image vertically in the center */
         left: 50%;           /* Position the image horizontally in the center */
         transform: translate(-50%, -50%); /* Offset the image by 50% of its own size to perfectly center it */
-        max-width: 100%;  /* Optional: limits the image size */
-        height: auto;    /* Maintains the aspect ratio */
-      /*  display: block; /* Shows the second image */
-      /*  margin: 0 auto; /* Centers the image horizontally */
-      /*  text-align: center; /* Centers the contents of the container */
+        width: auto;  /* Optional: limits the image size */
+        height: 100px;    /* Maintains the aspect ratio */
+        margin: 0 auto; /* Centers the image horizontally */
+        text-align: center; /* Centers the contents of the container */
     }
 
     /* Hide the third image for larger screens */
@@ -96,37 +112,101 @@ footer {
         display: none; /* Hides the third image */
     }
 }
-
-/* Media Query for smaller screens (600px or less) */
-@media (max-width: 600px) {
-    /* Hide the first and second images on smaller screens */
+@media (min-width: 600px) and (max-width: 1100px) {
+    /* Styles for screens with a width between 600px and 1100px */
+    /* Show the first image (logo) and second image in larger screens */
     #logo-first {
-        display: none; /* Hides the first image */
+        display: block; /* Shows the first image */
+        height: 80px;    /* Maintains the aspect ratio */
+        width: auto;    /* Maintains the aspect ratio */
     }
 
     .header-center-image {
-        display: none; /* Hides the second image */
+        display: block; /* Shows the second image */
+        position: absolute;  /* Position the image absolutely within the header */
+        top: 50%;            /* Position the image vertically in the center */
+        left: 50%;           /* Position the image horizontally in the center */
+        transform: translate(-50%,-50%); /* Offset the image by 50% of its own size to perfectly center it */
+        height: 100px;    /* Maintains the aspect ratio */
+        width: auto;  /* Optional: limits the image size */
+        margin: 0 auto; /* Centers the image horizontally */
+        text-align: center; /* Centers the contents of the container */
     }
+
+    /* Hide the third image for larger screens */
+    #logo-third {
+        display: none; /* Hides the third image */
+    }
+    .main-navigation {
+            flex-grow: 1; /* Allow menu to take available space */
+            display: flex;
+            justify-content: flex-end; /* Align menu items to the right */
+    }
+    .header-branding-small-screen {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align content to the left */
+            flex-grow: 1; /* Allow it to take space */
+            height: 100%;
+        }
+        .main-navigation ul {
+            display: flex;
+            flex-direction: column; /* Stacks the navigation items vertically */
+            align-items: flex-end; /* Aligns items to the left */
+            padding: 0;
+            margin: 0;
+        }
+
+            .main-navigation ul li {
+                margin-bottom: 10px; /* Adds space between navigation items */
+            }
+
+            /* Stack tabs vertically */
+            .tabs {
+                flex-direction: column; /* Stacks the tabs vertically */
+            }
+
+            .tab-button {
+                width: 100%; /* Makes each tab button take full width */
+                margin-bottom: 5px; /* Adds space below each tab button */
+            }
+}
+/* Media Query for smaller screens (600px or less) */
+@media (max-width: 600px) {
+    /* Stack navigation vertically on smaller screens */
+
+    /* Hide the first and second images on smaller screens */
+    #logo-first {display: none; /* Hides the first image */}
+    .header-center-image {display: none; /* Hides the second image */}
 
     /* Show the third image on smaller screens */
     #logo-third {
         display: block; /* Shows the third image */
-        max-width: 80%;  /* Set a maximum width of 80% of its container */
-        height: auto;    /* Maintain the aspect ratio */
-        max-height: 500px; /* Set a maximum height to avoid it becoming too large */
-        margin: 0 auto;  /* Centers the image */
+        align-self: flex-start;
+        height: 120px;    /* Maintain the aspect ratio */
+        width: auto;  /* Set a maximum width of 80% of its container */
+        margin: 0;  /* Centers the image */
+        padding: 0;
     }
-
-    /* Stack navigation vertically on smaller screens */
-    .hgroup-wrap {
-        flex-direction: column; /* Stacks header items vertically */
-        align-items: flex-start; /* Aligns items to the left */
-        padding: 10px; /* Reduces padding */
+    .header-branding-small-screen {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align content to the left */
+            flex-grow: 1; /* Allow it to take space */
+            height: 100%;
+        }
+    .main-navigation {
+            flex-grow: 1; /* Allow menu to take available space */
+            display: flex;
+            justify-content: flex-end; /* Align menu items to the right */
     }
 
     .main-navigation ul {
+        display: flex;
         flex-direction: column; /* Stacks the navigation items vertically */
-        align-items: flex-start; /* Aligns items to the left */
+        align-items: flex-end; /* Aligns items to the left */
+        padding: 0;
+        margin: 0;
     }
 
     .main-navigation ul li {
