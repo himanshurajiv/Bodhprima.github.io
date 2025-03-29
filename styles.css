@@ -156,25 +156,20 @@ footer {
             padding: 0;
             margin: 0;
         }
-
-            .main-navigation ul li {
-                margin-bottom: 10px; /* Adds space between navigation items */
-            }
-
-            /* Stack tabs vertically */
-            .tabs {
-                flex-direction: column; /* Stacks the tabs vertically */
-            }
-
-            .tab-button {
-                width: 100%; /* Makes each tab button take full width */
-                margin-bottom: 5px; /* Adds space below each tab button */
-            }
+        .main-navigation ul li {
+            margin-bottom: 10px; /* Adds space between navigation items */
+        }
+        /* Stack tabs vertically */
+        .tabs {
+            flex-direction: column; /* Stacks the tabs vertically */
+        }
+        .tab-button {
+            width: 100%; /* Makes each tab button take full width */
+            margin-bottom: 5px; /* Adds space below each tab button */
+        }
 }
 /* Media Query for smaller screens (600px or less) */
 @media (max-width: 600px) {
-    /* Stack navigation vertically on smaller screens */
-
     /* Hide the first and second images on smaller screens */
     #logo-first {display: none; /* Hides the first image */}
     .header-center-image {display: none; /* Hides the second image */}
